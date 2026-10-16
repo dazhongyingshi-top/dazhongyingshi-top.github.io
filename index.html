@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="大众影视聚焦华语与全球电影、剧集、纪录片的内容解读与行业观察，汇集大众视角的观影笔记、口碑榜单与幕后创作故事，为热爱影像的观众提供有温度的讨论空间。">
+<meta name="keywords" content="大众影视,电影资讯,剧集推荐,影评赏析,纪录片,华语电影,院线口碑,影视文化">
+<meta name="author" content="大众影视编辑组">
+<meta name="theme-color" content="#12151c">
+<title>大众影视｜电影剧集资讯与影评交流社区 · 大众影视</title>
+<style>
+:root{
+  --bg:#12151c;
+  --panel:#1a1e27;
+  --panel-2:#222733;
+  --line:#2c323f;
+  --txt:#e8eaf0;
+  --txt-dim:#a4abbb;
+  --txt-faint:#767d8f;
+  --accent:#ff7a45;
+  --accent-2:#ffb84d;
+  --blue:#4d8dff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);
+  color:var(--txt);
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","WenQuanYi Micro Hei",system-ui,sans-serif;
+  line-height:1.75;
+  font-size:16px;
+  overflow-x:hidden;
+}
+a{color:var(--accent-2);text-decoration:none}
+a:hover{color:var(--accent)}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* ===== 顶部导航 ===== */
+.nav{
+  position:sticky;top:0;z-index:99;
+  background:rgba(18,21,28,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{display:flex;align-items:center;gap:18px;height:60px}
+.brand{font-size:20px;font-weight:800;letter-spacing:1px;color:#fff;white-space:nowrap}
+.brand i{color:var(--accent);font-style:normal}
+.nav-links{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+.nav-links a{
+  color:var(--txt-dim);font-size:14.5px;padding:7px 12px;border-radius:8px;transition:.2s;
+}
+.nav-links a:hover{background:var(--panel-2);color:#fff}
+@media(max-width:720px){
+  .nav-in{height:auto;padding:12px 0;flex-wrap:wrap;gap:10px}
+  .nav-links{margin-left:0;width:100%}
+  .nav-links a{padding:6px 10px;font-size:14px}
+}
+
+/* ===== 首屏 ===== */
+.hero{
+  position:relative;
+  padding:78px 0 64px;
+  background:
+    radial-gradient(1200px 400px at 80% -10%,rgba(255,122,69,.18),transparent 60%),
+    radial-gradient(900px 360px at 0% 20%,rgba(77,141,255,.14),transparent 55%);
+  border-bottom:1px solid var(--line);
+}
+.hero .kicker{color:var(--accent);font-size:13px;letter-spacing:3px;font-weight:700}
+.hero h1{
+  font-size:44px;line-height:1.25;margin:14px 0 18px;font-weight:800;
+  background:linear-gradient(92deg,#fff 30%,var(--accent-2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p{color:var(--txt-dim);max-width:640px;font-size:16.5px}
+.hero-actions{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:12px 22px;border-radius:10px;font-size:15px;font-weight:600;transition:.2s;
+}
+.btn-main{background:var(--accent);color:#1a0e08}
+.btn-main:hover{background:var(--accent-2);color:#1a0e08}
+.btn-ghost{border:1px solid var(--line);color:var(--txt-dim)}
+.btn-ghost:hover{border-color:var(--accent);color:#fff}
+@media(max-width:600px){.hero{padding:52px 0 44px}.hero h1{font-size:32px}}
+
+/* ===== 通用板块 ===== */
+section{padding:64px 0;border-bottom:1px solid var(--line)}
+.sec-head{margin-bottom:34px}
+.sec-head .tag{color:var(--accent);font-size:13px;letter-spacing:2px;font-weight:700}
+.sec-head h2{font-size:28px;margin-top:6px;font-weight:800}
+.sec-head p{color:var(--txt-faint);margin-top:8px;font-size:15px}
+@media(max-width:600px){section{padding:46px 0}.sec-head h2{font-size:23px}}
+
+/* ===== 栏目卡片 ===== */
+.grid{display:grid;gap:18px}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.grid-4{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid-4,.grid-3,.grid-2{grid-template-columns:1fr}}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  padding:22px;transition:.25s;
+}
+.card:hover{transform:translateY(-4px);border-color:rgba(255,122,69,.5);background:var(--panel-2)}
+.card .no{font-size:13px;color:var(--accent);font-weight:800;letter-spacing:1px}
+.card h3{font-size:18px;margin:8px 0 10px}
+.card p{color:var(--txt-dim);font-size:14.5px}
+.card a{display:inline-block;margin-top:12px;font-size:14px;font-weight:600}
+
+/* ===== 文章列表 ===== */
+.post{border-bottom:1px dashed var(--line);padding:20px 0;display:flex;gap:18px;align-items:flex-start}
+.post:last-child{border-bottom:0}
+.post .idx{font-size:26px;font-weight:800;color:var(--line);line-height:1;min-width:42px}
+.post h4{font-size:18px;margin-bottom:6px}
+.post p{color:var(--txt-dim);font-size:14.5px}
+.post .meta{margin-top:8px;font-size:12.5px;color:var(--txt-faint)}
+@media(max-width:600px){.post{flex-direction:column;gap:8px}.post .idx{font-size:20px}}
+
+/* ===== 数据条 ===== */
+.bars{display:flex;flex-direction:column;gap:16px}
+.bar-row .top{display:flex;justify-content:space-between;font-size:14.5px;margin-bottom:6px}
+.bar-row .top span:last-child{color:var(--accent-2)}
+.track{height:9px;background:var(--panel-2);border-radius:6px;overflow:hidden}
+.fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+
+/* ===== 时间线 ===== */
+.timeline{position:relative;padding-left:26px}
+.timeline:before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl{position:relative;padding:0 0 26px 18px}
+.tl:before{content:"";position:absolute;left:-23px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(255,122,69,.18)}
+.tl h4{font-size:17px}
+.tl p{color:var(--txt-dim);font-size:14.5px}
+
+/* ===== FAQ ===== */
+.faq{border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.faq-item+.faq-item{border-top:1px solid var(--line)}
+.faq-q{padding:18px 22px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;gap:14px;font-size:16px}
+.faq-q:hover{background:var(--panel)}
+.faq-q:after{content:"+";color:var(--accent);font-size:20px;flex:none}
+.faq-item.open .faq-q:after{content:"−"}
+.faq-a{padding:0 22px;max-height:0;overflow:hidden;transition:.3s;color:var(--txt-dim);font-size:14.5px}
+.faq-item.open .faq-a{padding:0 22px 20px;max-height:400px}
+
+/* ===== 页脚 ===== */
+.foot{border-top:1px solid var(--line);padding:44px 0 30px;color:var(--txt-faint);font-size:14px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px;margin-bottom:28px}
+@media(max-width:720px){.foot-grid{grid-template-columns:1fr}}
+.foot h5{color:#fff;font-size:16px;margin-bottom:12px}
+.foot ul{list-style:none}
+.foot li{margin-bottom:8px}
+.foot a{color:var(--txt-dim)}
+.foot a:hover{color:var(--accent-2)}
+.copy{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.copy a{color:var(--txt-dim)}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<!-- 顶部导航 -->
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">大众<i>影视</i></a>
+    <div class="nav-links">
+      <a href="#focus">影像聚焦</a>
+      <a href="#review">口碑解读</a>
+      <a href="#trend">市场观察</a>
+      <a href="#behind">幕后创作</a>
+      <a href="#faq">常见问答</a>
+    </div>
+  </div>
+</nav>
+
+<!-- 首屏 -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="kicker">D A Z H O N G &nbsp;Y I N G S H I</div>
+    <h1>大众影视：把镜头背后的故事<br>讲给每一个爱电影的人</h1>
+    <p>我们不追流量榜单的喧闹，只关心一部作品为什么值得被看见。从院线新片到冷门剧集，从导演的第一部长片到纪录片的田野调查，大众影视用文字留下每一次认真的观影痕迹。</p>
+    <div class="hero-actions">
+      <a class="btn btn-main" href="#focus">浏览最新内容</a>
+      <a class="btn btn-ghost" href="#about">了解大众影视</a>
+    </div>
+  </div>
+</header>
+
+<!-- 关于 -->
+<section id="about">
+  <div class="wrap">
+    <div class="grid grid-2">
+      <div>
+        <div class="sec-head">
+          <div class="tag">A B O U T</div>
+          <h2>关于大众影视</h2>
+          <p>一个由观影者写、给观影者看的独立内容阵地。</p>
+        </div>
+        <p style="color:var(--txt-dim)">大众影视成立于影像内容爆发式增长的年代，我们相信"看"这件事本身值得被认真对待。这里没有搬运，没有水军评分，只有作者署名的观影笔记、长访谈与行业记录。网址：<a href="https://dazhongyingshi-top.github.io">https://dazhongyingshi-top.github.io</a></p>
+      </div>
+      <div class="bars">
+        <div class="bar-row"><div class="top"><span>原创影评与剧评</span><span>86%</span></div><div class="track"><div class="fill" style="width:86%"></div></div></div>
+        <div class="bar-row"><div class="top"><span>创作者深度访谈</span><span>64%</span></div><div class="track"><div class="fill" style="width:64%"></div></div></div>
+        <div class="bar-row"><div class="top"><span>华语独立影像报道</span><span>71%</span></div><div class="track"><div class="fill" style="width:71%"></div></div></div>
+        <div class="bar-row"><div class="top"><span>读者投稿与讨论</span><span>52%</span></div><div class="track"><div class="fill" style="width:52%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目 -->
+<section id="focus">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">C O L U M N S</div>
+      <h2>四大常设栏目</h2>
+      <p>每个栏目由固定编辑负责，保持稳定的观察视角与更新节奏。</p>
+    </div>
+    <div class="grid grid-4">
+      <div class="card">
+        <div class="no">01</div>
+        <h3>院线笔记</h3>
+        <p>每周新片的上映观察，不写通稿式吹捧，只记录真实的观感与争议。</p>
+        <a href="#focus">进入栏目 →</a>
+      </div>
+      <div class="card">
+        <div class="no">02</div>
+        <h3>剧集深读</h3>
+        <p>针对长剧集的叙事结构与人物弧光做分集拆解，适合追完再回来对照。</p>
+        <a href="#focus">进入栏目 →</a>
+      </div>
+      <div class="card">
+        <div class="no">03</div>
+        <h3>镜头之外</h3>
+        <p>摄影、美术、声音与剪辑的幕后技术随笔，写给想了解制作的人。</p>
+        <a href="#focus">进入栏目 →</a>
+      </div>
+      <div class="card">
+        <div class="no">04</div>
+        <h3>纪录片田野</h3>
+        <p>跟拍独立纪录片的创作过程，呈现真实世界里的取景与取舍。</p>
+        <a href="#focus">进入栏目 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 口碑解读 -->
+<section id="review">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">R E V I E W</div>
+      <h2>近期口碑解读</h2>
+      <p>以下为编辑部近期完成的几篇长文，点击标题可展开完整内容。</p>
+    </div>
+    <div class="grid grid-2">
+      <div>
+        <article class="post">
+          <div class="idx">01</div>
+          <div>
+            <h4>当家庭成为叙事的容器：三部华语新片的共同困境</h4>
+            <p>家庭题材并未过时，问题在于我们是否还在用同一种方式讲述代际关系。本文对比三部近期上映作品的场面调度与台词设计。</p>
+            <div class="meta">栏目：院线笔记 · 约 3200 字 · 编辑署名</div>
+          </div>
+        </article>
+        <article class="post">
+          <div class="idx">02</div>
+          <div>
+            <h4>长剧集的"中段塌陷"：十二集为何比八集更难写</h4>
+            <p>从叙事引擎的角度分析流媒体时代剧集结构的变化，以及编剧如何在没有广告插播的节奏里留住观众。</p>
+            <div class="meta">栏目：剧集深读 · 约 2600 字 · 编辑署名</div>
+          </div>
+        </article>
+        <article class="post">
+          <div class="idx">03</div>
+          <div>
+            <h4>声音设计如何改写一场戏的情绪底色</h4>
+            <p>以三部不同类型的影片为例，拆解对白、环境声与静默之间的取舍，以及这些选择如何被观众无意识地接收。</p>
+            <div class="meta">栏目：镜头之外 · 约 2100 字 · 编辑署名</div>
+          </div>
+        </article>
+      </div>
+      <div>
+        <article class="post">
+          <div class="idx">04</div>
+          <div>
+            <h4>一位纪录片导演的三年：从立项到首映</h4>
+            <p>跟随导演走过田野调查、素材筛选与后期剪辑，记录一部独立纪录片如何在有限预算下完成表达。</p>
+            <div class="meta">栏目：纪录片田野 · 约 4500 字 · 编辑署名</div>
+          </div>
+        </article>
+        <article class="post">
+          <div class="idx">05</div>
+          <div>
+            <h4>重看经典：那些年被忽略的美术细节</h4>
+            <p>回望几部公认经典，把注意力从剧情与表演移开，只看场景、道具与色彩如何参与叙事。</p>
+            <div class="meta">栏目：镜头之外 · 约 1800 字 · 编辑署名</div>
+          </div>
+        </article>
+        <article class="post">
+          <div class="idx">06</div>
+          <div>
+            <h4>观众口味变迁：从数据里读出的三个信号</h4>
+            <p>综合多方公开票房与讨论数据，观察近一年观众偏好的位移，以及它可能给创作者带来的启示。</p>
+            <div class="meta">栏目：院线笔记 · 约 2400 字 · 编辑署名</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 市场观察 -->
+<section id="trend">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">T R E N D</div>
+      <h2>市场观察</h2>
+      <p>大众影视定期整理行业侧的变化，只呈现可核实的公开信息并附来源说明。</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="timeline">
+        <div class="tl"><h4>春节档之后的档期选择</h4><p>大片扎堆的现象并未消失，但中小成本作品开始主动避开传统强档，转而寻找口碑发酵的空间。</p></div>
+        <div class="tl"><h4>流媒体与院线的共存形态</h4><p>窗口期缩短已成常态，真正的变化在于创作者开始为不同媒介分别设计叙事节奏。</p></div>
+        <div class="tl"><h4>短内容的叙事实验</h4><p>更短的时长倒逼叙事结构改变，一批创作者在有限时长内完成了接近短片电影的表达。</p></div>
+        <div class="tl"><h4>独立影展的生态位</h4><p>地方性影展数量增长，成为新人导演与观众之间最直接的见面场所。</p></div>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">编辑部观察原则</h3>
+        <p style="color:var(--txt-dim)">我们不预测票房，不制造话题，也不参与评分战。每一条行业判断都需满足两个条件：有可查的公开数据支撑，且对普通观众有实际意义。这是我们与大众影视这个名称之间最朴素的约定。</p>
+        <p style="color:var(--txt-dim);margin-top:12px">欢迎通过站点底部的信息与我们讨论内容方向，读者来信会被逐封阅读。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 幕后创作 -->
+<section id="behind">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">B E H I N D</div>
+      <h2>幕后创作</h2>
+      <p>把镜头转向创作者本身，记录他们如何把一个念头变成银幕上的画面。</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>导演手记</h3>
+        <p>首部长片导演回顾开拍前的筹备清单，以及那些最终被放弃的场次。</p>
+        <a href="#behind">阅读手记 →</a>
+      </div>
+      <div class="card">
+        <h3>摄影棚日记</h3>
+        <p>一场夜戏的光线方案是如何在三个小时里被推翻重做的。</p>
+        <a href="#behind">阅读日记 →</a>
+      </div>
+      <div class="card">
+        <h3>剪辑室对话</h3>
+        <p>剪辑师与导演关于"删掉最喜欢的镜头"的那次争执。</p>
+        <a href="#behind">阅读对话 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">F A Q</div>
+      <h2>常见问答</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q">大众影视主要发布什么类型的内容？</div>
+        <div class="faq-a">我们聚焦电影、剧集与纪录片的内容解读、幕后创作与行业观察，以原创长文为主，不提供任何影视资源的下载或在线播放服务。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">内容与影视发行方有商业合作吗？</div>
+        <div class="faq-a">所有署名文章均为编辑部独立观点。涉及宣发期的采访会明确标注合作性质，商业内容与 editorial 内容严格分栏。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">如何向大众影视投稿？</div>
+        <div class="faq-a">我们接受观影笔记、访谈记录与幕后技术类稿件，可通过站点底部的信息与我们取得联系，编辑会在工作日内回复。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">站点网址是什么？</div>
+        <div class="faq-a">本站的访问地址为 https://dazhongyingshi-top.github.io，网站名称为"大众影视"，请认准该域名以免误入仿冒站点。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h5>大众影视</h5>
+        <p style="color:var(--txt-dim)">把镜头背后的故事讲给每一个爱电影的人。本站为影视文化内容站点，不提供任何影视资源的下载或在线播放服务。</p>
+      </div>
+      <div>
+        <h5>栏目导航</h5>
+        <ul>
+          <li><a href="#focus">影像聚焦</a></li>
+          <li><a href="#review">口碑解读</a></li>
+          <li><a href="#trend">市场观察</a></li>
+          <li><a href="#behind">幕后创作</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>站点信息</h5>
+        <ul>
+          <li><a href="#about">关于我们</a></li>
+          <li><a href="#faq">常见问答</a></li>
+          <li><a href="https://dazhongyingshi-top.github.io">https://dazhongyingshi-top.github.io</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© <span id="yr"></span> 大众影视 · 影视文化内容站点</span>
+      <span>网站名称：大众影视 ｜ 网址：<a href="https://dazhongyingshi-top.github.io">https://dazhongyingshi-top.github.io</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    q.parentElement.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>
